@@ -1,3 +1,5 @@
+# TODO: use ~/.kube/config as config. Don't specify
+#  so many certs for the helm-provider!
 resource "kind_cluster" "this" {
   name           = "lcb"
   wait_for_ready = true

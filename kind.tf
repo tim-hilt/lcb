@@ -1,6 +1,6 @@
 resource "kind_cluster" "this" {
   name            = "lcb"
-  kubeconfig_path = pathexpand("~/.kube/config")
+  kubeconfig_path = pathexpand(vars.kubernetes_config_file)
   wait_for_ready  = true
 
   kind_config {

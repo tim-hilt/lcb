@@ -1,6 +1,6 @@
 provider "helm" {
   kubernetes {
-    config_path = pathexpand(vars.kubernetes_config_file)
+    config_path = pathexpand(var.kubernetes_config_file)
   }
 }
 

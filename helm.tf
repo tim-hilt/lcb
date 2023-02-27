@@ -43,10 +43,31 @@ resource "helm_release" "monitoring" {
   name       = "monitoring"
   repository = "https://prometheus-community.github.io/helm-charts"
   chart      = "kube-prometheus-stack"
-  version    = "45.0.0"
+  version    = "45.4.0"
+
+  namespace        = var.monitoring_namespace
+  create_namespace = true
 
   values = [
     file("values/monitoring.values.yaml")
+  ]
+
+  depends_on = [null_resource.wait_for_ingress]
+}
+
+resource "helm_release" "logging" {
+  count = var.with_logging ? 1 : 0
+
+  name       = "logging"
+  repository = "https://grafana.github.io/helm-charts"
+  chart      = "loki-stack"
+  version    = "2.9.9"
+
+  namespace        = var.monitoring_namespace
+  create_namespace = true
+
+  values = [
+    file("values/logging.values.yaml")
   ]
 
   depends_on = [null_resource.wait_for_ingress]

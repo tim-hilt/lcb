@@ -1,0 +1,7 @@
+loki:
+  isDefault: false
+promtail:
+  enabled: false
+fluent-bit:
+  enabled: true
+

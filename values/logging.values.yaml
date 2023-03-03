@@ -1,5 +1,5 @@
-loki:
-  isDefault: false
+# loki:
+#   isDefault: false
 promtail:
   config:
     clients:
@@ -17,29 +17,4 @@ promtail:
                 level: level
                 something: counter
                 message: message
-    # file: |
-    #   server:
-    #     log_level: info
-    #     http_listen_port: 3101
-    #     http_path_prefix: ""
-    #   clients:
-    #     - url: http://logging-loki:3100/loki/api/v1/push
-    #   positions:
-    #     filename: /run/promtail/positions.yaml
-    #   scrape_configs:
-    #     - job_name: app
-    #       kubernetes_sd_configs:
-    #       - role: pod
-    #       pipeline_stages:
-    #       - cri: {}
-    #       - json:
-    #           expressions:
-    #             time: time
-    #             level: level
-    #             counter: counter
-    #             message: message
-    #     {{- tpl .Values.config.snippets.scrapeConfigs . | nindent 2 }}
-    #     {{- tpl .Values.config.snippets.extraScrapeConfigs . | nindent 2 }}
-    #   limits_config:
-    #     {{- tpl .Values.config.snippets.extraLimitsConfig . | nindent 2 }}
 

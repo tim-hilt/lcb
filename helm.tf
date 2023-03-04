@@ -66,9 +66,5 @@ resource "helm_release" "logging" {
   namespace        = var.monitoring_namespace
   create_namespace = true
 
-  values = [
-    file("values/logging.values.yaml")
-  ]
-
   depends_on = [null_resource.wait_for_ingress]
 }

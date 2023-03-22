@@ -5,3 +5,6 @@ grafana:
     hosts:
       - monitoring.localhost
 
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
